@@ -2,9 +2,32 @@
   display: none !important;
 }
 
-.newQ {
-	width: 49%;
-	display: block;
-	float: left;
-	background-color: gray;
+html, body {
+	width: 100%;
+	height: 100%;
 }
+
+.top {
+	width: 100%;
+	margin-top: 1%;
+}
+
+#q {
+	width: 50%;
+}
+
+.container {
+	width: 49.9%;
+	display: inline-block;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+

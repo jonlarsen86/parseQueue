@@ -2,22 +2,30 @@
 <html ng-app="parseQ">
 <head>
 	<title>ParseQ</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body ng-controller="mainController">
-	<input type="text" ng-model="enteredQuestion"></input>
-	<button type="submit" ng-click="postData()">Submit Question</button>
-	<p>New Questions</p>
-	<div ng-repeat="question in returnedQuestions | filter:{status: 'red'}" ng-cloak>
-		<textarea>{{question.text}}</textarea>
-		<button type="submit" ng-click="changeStatus(question.objectId)">Change Status</button>
+	<h1 class="text-center">ParseQ</h1>
+	<form class="top text-center form-inline">
+		<label for="q">Question</label>
+		<input class="form-control" id="q" type="text" ng-model="enteredQuestion"></input>
+		<button class="btn btn-default" type="submit" ng-click="postData()">Submit Question</button>
+	</form>
+	<div class="left container text-center">
+		<p>New Questions</p>
+		<div ng-repeat="question in returnedQuestions | filter:{status: 'red'}" ng-cloak>
+			<textarea>{{question.text}}</textarea>
+			<button type="submit" ng-click="changeStatus(question.objectId)">Change Status</button>
+		</div>
 	</div>
-	<p>Being helped</p>
-	<div ng-repeat="question in returnedQuestions | filter:{status: 'yellow'}" ng-cloak>
-		<textarea>{{question.text}}</textarea>
-		<button type="submit" ng-click="deleteData(question.objectId)">Delete</button>
+	<div class="right container text-center">
+		<p>Being helped</p>
+		<div ng-repeat="question in returnedQuestions | filter:{status: 'yellow'}" ng-cloak>
+			<textarea>{{question.text}}</textarea>
+			<button type="submit" ng-click="deleteData(question.objectId)">Delete</button>
+		</div>
 	</div>
-	
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/defaultHeaders.js"></script>
