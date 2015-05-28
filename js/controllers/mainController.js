@@ -16,8 +16,6 @@ var app = angular.module("parseQ")
 		parseService.postQuestion($scope.enteredQuestion)
 			.then(function(data) {
 				$scope.getParseData();
-				// console.log(data.data.objectId);
-				// $scope.testData = data.data.objectId;
 		});
 	}
 
@@ -27,11 +25,12 @@ var app = angular.module("parseQ")
 		});
 	}
 
-	// $scope.getData = function() {
-	// 	parseService.getQuestion($scope.testData)
-	// 		.then(function(data) {
-	// 			console.log(data.data.question);
-	// 			$scope.returnedQuestions = data.data;
-	// 	});
-	// }		
+	$scope.deleteData = function(questionId) {
+		parseService.deleteQuestion(questionId).then(function(data) {
+			$scope.getParseData();
+		})
+	}
+
+
+		
 })

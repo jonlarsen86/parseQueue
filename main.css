@@ -4,7 +4,7 @@
 
 .newQ {
 	width: 49%;
-	display: inline-block;
+	display: block;
 	float: left;
 	background-color: gray;
 }

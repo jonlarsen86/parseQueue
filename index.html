@@ -5,13 +5,17 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body ng-controller="mainController">
-	<form ng-submit="postData()">
-		<input type="text" ng-model="enteredQuestion"></input>
-		<button type="submit" ng-click="postData()">Submit Question</button>
-	</form>
-	<div class="newQ" ng-repeat="question in returnedQuestions | filter:{status: 'red'}" ng-cloak>
+	<input type="text" ng-model="enteredQuestion"></input>
+	<button type="submit" ng-click="postData()">Submit Question</button>
+	<p>New Questions</p>
+	<div ng-repeat="question in returnedQuestions | filter:{status: 'red'}" ng-cloak>
 		<textarea>{{question.text}}</textarea>
 		<button type="submit" ng-click="changeStatus(question.objectId)">Change Status</button>
+	</div>
+	<p>Being helped</p>
+	<div ng-repeat="question in returnedQuestions | filter:{status: 'yellow'}" ng-cloak>
+		<textarea>{{question.text}}</textarea>
+		<button type="submit" ng-click="deleteData(question.objectId)">Delete</button>
 	</div>
 	
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>

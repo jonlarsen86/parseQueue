@@ -26,7 +26,14 @@ var app = angular.module("parseQ")
 			data: {
 				status: "yellow"
 			}
-		})
+		});
+	}
+
+	this.deleteQuestion = function(objId) {
+		return $http({
+			method: "DELETE",
+			url: "https://api.parse.com/1/classes/questions/" + objId
+		});
 	}
 
 })
